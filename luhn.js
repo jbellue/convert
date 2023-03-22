@@ -3,6 +3,7 @@ let cardInput, luhnResult;
 
 const luhnCheck = num => {
     const arr = (num + '')
+        .replace(/ |-/g, '')
         .split('')
         .reverse()
         .map(x => parseInt(x));
