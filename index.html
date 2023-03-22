@@ -2,66 +2,61 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style>
-            #mainForm {
-                width: 70%;
-                margin: auto;
-            }
-            textarea {
-                width: 100%;
-                height: 80px;
-            }
-        </style>
+        <link rel="stylesheet" href="style.css">
         <title>Converter</title>
         <script src="script.js"></script>
     </head>
 <body>
-    <form id="mainForm">
-        <fieldset>
-            <legend>Number delimiter</legend>
-            <select id="delimiterSelector">
-                <option value="">None</option>
-                <option value=" " selected="">Space</option>
-                <option value=", ">Comma</option>
-                <option value=" 0x">User defined</option>
-            </select>
-            <input type="text" value=" " id="userDefinedDelimiter" readonly="readonly">
-        </fieldset>
-        <fieldset>
-            <legend>ASCII text</legend>
-            <textarea id="asciiTextArea" placeholder="ABC ..." data-areaType="ascii" autofocus=""></textarea>
-        </fieldset>
-        <fieldset>
-            <legend>Hex (bytes)</legend>
-            <input type="checkbox" id="hexPrefixCheckbox">
-            <label for="hexPrefixCheckbox" >0x prefix</label>
-            <br>
-            <textarea id="hexTextArea" placeholder="41 42 43 ..." data-areaType="hex"></textarea>
-        </fieldset>
-        <fieldset>
-            <legend>Base 64</legend>
-            <textarea id="base64TextArea" placeholder="QUJD ..." data-areaType="b64"></textarea>
-        </fieldset>
-        <fieldset>
-            <legend>Binary (bytes)</legend>
-            <input type="checkbox" id="binPrefixCheckbox">
-            <label for="binPrefixCheckbox" >0b prefix</label>
-            <br>
-            <textarea id="binTextArea" placeholder="01000001 01000010 01000011 ..." data-areaType="binary"></textarea>
-        </fieldset>
-        <fieldset>
-            <legend>Decimal (bytes)</legend>
-            <textarea id="decTextArea" placeholder="65 66 67 ..." data-areaType="decimal"></textarea>
-        </fieldset>
-        <fieldset>
-            <legend>Length (bytes)</legend>
-            <input type="text" id="lengthInput" name="len" readonly>
-        </fieldset>
-        <fieldset>
-            <legend>PNG</legend>
-            <img id="pngImage" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=" alt="decoded PNG image">
-        </fieldset>
-    </form>
+    <div class="container container-full">
+        <div class="main-block" id="mainForm">
+            <h1>Converter</h1>
+            <fieldset>
+                <legend>Number delimiter</legend>
+                <select id="delimiterSelector">
+                    <option value="">None</option>
+                    <option value=" " selected="">Space</option>
+                    <option value=", ">Comma</option>
+                    <option value=" 0x">User defined</option>
+                </select>
+                <input type="text" value=" " id="userDefinedDelimiter" readonly="readonly">
+            </fieldset>
+            <fieldset>
+                <legend>ASCII text</legend>
+                <textarea id="asciiTextArea" placeholder="ABC ..." data-areaType="ascii" autofocus=""></textarea>
+            </fieldset>
+            <fieldset>
+                <legend>Hex (bytes)</legend>
+                <input type="checkbox" id="hexPrefixCheckbox">
+                <label for="hexPrefixCheckbox" >0x prefix</label>
+                <br>
+                <textarea id="hexTextArea" placeholder="41 42 43 ..." data-areaType="hex"></textarea>
+            </fieldset>
+            <fieldset>
+                <legend>Base 64</legend>
+                <textarea id="base64TextArea" placeholder="QUJD ..." data-areaType="b64"></textarea>
+            </fieldset>
+            <fieldset>
+                <legend>Binary (bytes)</legend>
+                <input type="checkbox" id="binPrefixCheckbox">
+                <label for="binPrefixCheckbox" >0b prefix</label>
+                <br>
+                <textarea id="binTextArea" placeholder="01000001 01000010 01000011 ..." data-areaType="binary"></textarea>
+            </fieldset>
+            <fieldset>
+                <legend>Decimal (bytes)</legend>
+                <textarea id="decTextArea" placeholder="65 66 67 ..." data-areaType="decimal"></textarea>
+            </fieldset>
+            <fieldset>
+                <legend>Length (bytes)</legend>
+                <input type="text" id="lengthInput" name="len" readonly>
+            </fieldset>
+            <fieldset>
+                <legend>PNG</legend>
+                <img id="pngImage" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=" alt="decoded PNG image">
+            </fieldset>
+        </div>
+    </div>
 </body>
 </html>

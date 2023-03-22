@@ -1,0 +1,111 @@
+html,
+body {
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.container-full {
+    padding: 40px 0;
+}
+
+body,
+div,
+h1,
+input {
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 16px;
+    color: #636363;
+}
+
+
+h1, h2 {
+    padding: 10px 0;
+    text-align: center;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: 300;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: 300;
+}
+
+.main-block {
+    padding: 20px;
+    border-radius: 5px;
+    border: solid 1px #ccc;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, .31);
+    background: #ebebeb;
+    width: 75%;
+    margin: auto;
+}
+
+.small {
+    max-width: 340px;
+}
+
+textarea {
+    width: 100%;
+    height: 80px;
+    resize: vertical;
+    border-radius: 5px;
+    border: solid 1px #cbc9c9;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, .09);
+}
+
+hr {
+    color: #a3a2a2;
+    opacity: 0.3;
+}
+
+.input_wrap{
+    margin: 38px auto;
+    display: flex;
+}
+
+.input_wrap .input_box{
+    position: relative;
+    height: 60px;
+    width: 100%;
+}
+
+.input_wrap .input_box .input{
+    border: 0;
+    outline: none;
+    color: #8b7d77;
+    height: 100%;
+    font-size: 18px;
+    padding-left: 80px;
+    
+    box-sizing: border-box; 
+    border-radius: 50px;
+    width: 100%;
+}
+
+.input_wrap .input_box .input_icon{
+    position: absolute;
+    width: 60px;
+    height: 100%;
+    background: #7690da;
+    border-radius: 50%;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    font-size: 30px;
+}
+
+.input_wrap .input_box .input_icon:hover{
+    background: #708bd2;    
+}
