@@ -52,6 +52,10 @@ h2 {
     margin: auto;
 }
 
+#asciiValueForHex {
+    float: right;
+}
+
 .small {
     max-width: 340px;
 }
