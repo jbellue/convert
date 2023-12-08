@@ -9,7 +9,7 @@ const Types = {
 // define the elements to use them later
 let userDefinedDelimiter, delimiterSelector, binPrefixCheckbox,
     hexPrefixCheckbox, asciiTextArea, hexTextArea, base64TextArea,
-    binTextArea, decTextArea, lengthInput, asciiValueForHex;
+    binTextArea, decTextArea, lengthInput, asciiValueForHex, asciiValueForDec;
 
 const updateData = (input, src) => {
     if (!input) {
@@ -89,7 +89,7 @@ const clearFields = () => {
     lengthInput.value = 0;
 };
 
-const showASCIIrepresentation = () => {
+const getASCIIrepresentation = (str, pos, base) => {
     const getWordAt = (str, pos) => {
         const isSpace = (c) => /\s/.exec(c);
         let start = pos - 1;
@@ -106,12 +106,20 @@ const showASCIIrepresentation = () => {
         end = Math.max(start, end);
         return str.substring(start, end);
     };
-
-    let nibble = getWordAt(hexTextArea.value, hexTextArea.selectionStart);
-    const decimalValue = parseInt(nibble, 16);
+    let nibble = getWordAt(str, pos);
+    const decimalValue = parseInt(nibble, base);
     const ascii = String.fromCharCode(decimalValue);
-    const stringDesctiption = `${nibble}: ${ascii} (${asciiDescription[decimalValue]})`;
-    asciiValueForHex.textContent = stringDesctiption;
+    return `${nibble}: ${ascii} (${asciiDescription[decimalValue]})`;
+};
+
+const showHexASCIIrepresentation = (e) => {
+    const s = getASCIIrepresentation(e.target.value, e.target.selectionStart, 16);
+    asciiValueForHex.textContent = s;
+};
+
+const showDecASCIIrepresentation = (e) => {
+    const s = getASCIIrepresentation(e.target.value, e.target.selectionStart, 10);
+    asciiValueForDec.textContent = s;
 };
 
 const convert = e => {
@@ -254,6 +262,7 @@ const loadPageData = () => {
     asciiTextArea = document.getElementById("asciiTextArea");
     hexTextArea = document.getElementById("hexTextArea");
     asciiValueForHex = document.getElementById("asciiValueForHex");
+    asciiValueForDec = document.getElementById("asciiValueForDec");
     base64TextArea = document.getElementById("base64TextArea");
     binTextArea = document.getElementById("binTextArea");
     decTextArea = document.getElementById("decTextArea");
@@ -267,10 +276,11 @@ const loadPageData = () => {
 
     asciiTextArea.addEventListener("input", convert);
     hexTextArea.addEventListener("input", convert);
-    hexTextArea.addEventListener("click", showASCIIrepresentation);
+    hexTextArea.addEventListener("click", showHexASCIIrepresentation);
     base64TextArea.addEventListener("input", convert);
     binTextArea.addEventListener("input", convert);
     decTextArea.addEventListener("input", convert);
+    decTextArea.addEventListener("click", showDecASCIIrepresentation);
 };
 
 window.addEventListener('DOMContentLoaded', () => {
