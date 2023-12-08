@@ -11,23 +11,6 @@ let userDefinedDelimiter, delimiterSelector, binPrefixCheckbox,
     hexPrefixCheckbox, asciiTextArea, hexTextArea, base64TextArea,
     binTextArea, decTextArea, lengthInput, asciiValueForHex;
 
-const onDelimiterSelectionChange = e => {
-    if (e.target.selectedIndex == 3) { //user defined
-        userDefinedDelimiter.focus();
-        userDefinedDelimiter.readOnly = false;
-    }
-    else {
-        userDefinedDelimiter.readOnly = true;
-    }
-    userDefinedDelimiter.value = e.target.options[e.target.selectedIndex].value;
-    convert();
-};
-
-const onDelimiterInput = (e) => {
-    delimiterSelector.selectedIndex = 3;
-    convert();
-};
-
 const updateData = (input, src) => {
     if (!input) {
         return;
@@ -250,6 +233,23 @@ const convertBase64 = () => {
 };
 
 const loadPageData = () => {
+    const onDelimiterSelectionChange = e => {
+        if (e.target.selectedIndex == 3) { //user defined
+            userDefinedDelimiter.focus();
+            userDefinedDelimiter.readOnly = false;
+        }
+        else {
+            userDefinedDelimiter.readOnly = true;
+        }
+        userDefinedDelimiter.value = e.target.options[e.target.selectedIndex].value;
+        convert();
+    };
+    
+    const onDelimiterInput = (e) => {
+        delimiterSelector.selectedIndex = 3;
+        convert();
+    };
+
     userDefinedDelimiter = document.getElementById("userDefinedDelimiter");
     delimiterSelector = document.getElementById("delimiterSelector");
     binPrefixCheckbox = document.getElementById("binPrefixCheckbox");
