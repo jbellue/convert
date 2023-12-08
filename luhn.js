@@ -15,15 +15,19 @@ const luhnCheck = num => {
 
 const runCheck = () => {
     luhnResult.textContent = luhnCheck(cardInput.value) ?
-        "✔️ luhn passes" :
-        "❌ luhn fails";
+        "✔️ luhn passes" : "❌ luhn fails";
 }
 
 const loadPageData = () => {
+    const formatAsCardNumber = e => {
+        e.target.value= e.target.value.replace(/\W/gi, '').replace(/(.{4})/g, '$1 ');
+        return true;
+    };
     cardInput = document.getElementById("cardNumber");
     luhnResult = document.getElementById("luhnResult");
 
     cardInput.addEventListener("input", runCheck);
+    cardInput.addEventListener("keypress", formatAsCardNumber);
 
     runCheck();
 };
