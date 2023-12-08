@@ -4,7 +4,7 @@ const Types = {
     binary: "binary",
     decimal: "decimal",
     b64: "b64"
-}
+};
 
 // define the elements to use them later
 let userDefinedDelimiter, delimiterSelector, binPrefixCheckbox,
@@ -15,7 +15,9 @@ const updateData = (input, src) => {
     if (!input) {
         return;
     }
-    let ascii=hex=dec=bin='';
+    let ascii, hex, dec, bin;
+    ascii=hex=dec=bin='';
+
     const delimiter = userDefinedDelimiter.value;
     let hexprefix = "";
     let binprefix = "";
@@ -85,9 +87,9 @@ const clearFields = () => {
     binTextArea.value = "";
     decTextArea.value = "";
     lengthInput.value = 0;
-}
+};
 
-const showASCIIrepresentation = e => {
+const showASCIIrepresentation = () => {
     const getWordAt = (str, pos) => {
         const isSpace = (c) => /\s/.exec(c);
         let start = pos - 1;
@@ -133,7 +135,7 @@ const convert = e => {
             break;
     }
     updateData(data, type);
-}
+};
 
 const convertASCII = () => {
     let output = [];
@@ -188,7 +190,7 @@ const convertBinary = () => {
         clearFields();
         return;
     }
-    for ( i = 0; i < bin.length; i++) {
+    for (let i = 0; i < bin.length; i++) {
         output[i] = parseInt(bin[i], 2);
     }
     return output;
@@ -206,7 +208,7 @@ const convertDecimal = () => {
         clearFields();
         return;
     }
-    for ( i = 0; i < dec.length; i++) {
+    for (let i = 0; i < dec.length; i++) {
         output[i] = parseInt(dec[i], 10);
     }
     return output;
@@ -221,7 +223,7 @@ const convertBase64 = () => {
     }
     const ascii = window.atob(base64);
     asciiTextArea.value = ascii;
-    for ( i = 0; i < ascii.length; i++) {
+    for (let i = 0; i < ascii.length; i++) {
         x[i] = ascii.charCodeAt(i);
     }
     return x;
@@ -240,7 +242,7 @@ const loadPageData = () => {
         convert();
     };
     
-    const onDelimiterInput = (e) => {
+    const onDelimiterInput = () => {
         delimiterSelector.selectedIndex = 3;
         convert();
     };
@@ -271,7 +273,7 @@ const loadPageData = () => {
     decTextArea.addEventListener("input", convert);
 };
 
-window.addEventListener('DOMContentLoaded', (event) => {
+window.addEventListener('DOMContentLoaded', () => {
     loadPageData();
 });
 
@@ -404,4 +406,4 @@ const asciiDescription = [
     "Right curly bracket",
     "Tilde",
     "Delete"
-]
+];
