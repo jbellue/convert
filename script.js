@@ -119,7 +119,7 @@ const showASCIIrepresentation = e => {
 
 const convert = e => {
     let data = [];
-    type = e?.target.dataset.areatype;
+    const type = e?.target.dataset.areatype;
     switch (type) {
         case Types.hex:
             data = convertHex();
