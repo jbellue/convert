@@ -8,7 +8,7 @@ body {
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Full viewport height */
+    min-height: 100vh;
 }
 
 .site-header {
@@ -53,14 +53,17 @@ body {
 }
 
 .container {
-    display: flex;
-    justify-content: center;
     width: 100%;
-    padding: 40px 0;
+    max-width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .container-full {
-    padding: 40px 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 body,
@@ -97,12 +100,10 @@ h2 {
     border: solid 1px #ccc;
     box-shadow: 1px 2px 5px rgba(0, 0, 0, .31);
     background: #ebebeb;
-    width: 75%;
+    width: 100%;
     max-width: 100%;
-    display: inline-block;
-    height: auto;
-    min-height: unset;
-    align-self: flex-start;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 #asciiValueForHex {
@@ -286,21 +287,44 @@ header ul li a.active {
 /* Homepage tool cards */
 .tools-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: 1fr;
+    gap: 30px;
     margin-top: 30px;
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+@media (min-width: 992px) {
+    .tools-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)); /* Using minmax prevents overflow */
+    }
 }
 
 .tool-card {
     background-color: #f9f9f9;
     border-radius: 8px;
-    padding: 20px;
+    padding: 25px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.tool-card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 .tool-card:hover {
@@ -327,7 +351,6 @@ header ul li a.active {
     text-decoration: none;
     font-weight: 500;
     transition: background-color 0.3s;
-    margin: 0 auto;
 }
 
 .tool-link:hover {
@@ -335,8 +358,12 @@ header ul li a.active {
 }
 
 main {
-    flex: 1; /* Take up all available space */
-    padding-bottom: 20px; /* Space between content and footer */
+    flex: 1;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 footer {
@@ -345,6 +372,6 @@ footer {
     padding-bottom: 20px;
     background-color: #f2f2f2;
     color: #666;
-    margin-top: auto; /* Push to the bottom if content is short */
+    margin-top: auto;
     width: 100%;
 }
