@@ -1,6 +1,6 @@
 title: Web Tools
 description: A collection of utility web tools
-baseurl: "/webtools" # the subpath of your site, e.g. /blog
+baseurl: "/convert" # the subpath of your site, e.g. /blog
 url: "https://jbellue.github.io" # replace with your GitHub username
 
 # Build settings
