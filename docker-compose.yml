@@ -1,0 +1,25 @@
+services:
+  jekyll:
+    build: .
+    volumes:
+      - .:/app:cached
+      # Using a named volume for the bundle to persist gems between runs 
+      # while avoiding conflicts with the local vendor directory
+      - jekyll_bundle:/app/vendor/bundle
+    ports:
+      - "4000:4000"
+    environment:
+      - JEKYLL_ENV=development
+      - DISABLE_DISK_CACHE=true
+    command: >
+      sh -c "bundle install &&
+      bundle exec jekyll serve
+      --host 0.0.0.0
+      --incremental
+      --no-watch
+      --trace"
+    tty: true
+    stdin_open: true
+
+volumes:
+  jekyll_bundle:

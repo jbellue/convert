@@ -1,25 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Luhn Checker</title>
-    <script src="luhn.js"></script>
-    <script src="header.js"></script>
-</head>
-<body>
-    <div class="container container-full">
-        <div class="main-block small">
-            <h1>Luhn Checker</h1>
-            <hr>
+---
+layout: default
+title: Luhn Checker
+custom_js:
+  - luhn.js
+---
 
-            <div class="input_wrap">
-                <div class="input_box">
-                    <span class="input_icon">💳</span>
-                    <input type="text" class="input" id="cardNumber" placeholder="1234 5678 9012 3451">
-                </div>
+<div class="container container-full">
+    <div class="main-block small">
+        <h1>Luhn Checker</h1>
+        <hr>
+
+        <div class="input_wrap">
+            <div class="input_box">
+                <span class="input_icon">💳</span>
+                <input type="text" class="input" id="cardNumber" placeholder="1234 5678 9012 3451">
             </div>
-
-            <h2 id="luhnResult"></h2>
         </div>
+
+        <h2 id="luhnResult"></h2>
     </div>
-</body>
-</html>
+</div>

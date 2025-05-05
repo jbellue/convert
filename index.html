@@ -1,10 +1,30 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0; URL='./convert.html'" />
-    <link rel="canonical" href="./convert.html" />
-  </head>
-  <body>
-    <p>If you are not redirected automatically, follow this <a href="./convert.html">link to the homepage</a>.</p>
-  </body>
-</html>
+---
+layout: default
+title: Home
+---
+<div class="container container-full">
+    <div class="main-block">
+        <h1>Web Tools Collection</h1>
+        <hr>
+        
+        <div class="tools-grid">
+            <div class="tool-card">
+                <h2>Converters</h2>
+                <p>Convert between ASCII, HEX, Base64, Binary, and Decimal formats.</p>
+                <a href="{{ '/convert/' | relative_url }}" class="tool-link">Open Tool</a>
+            </div>
+            
+            <div class="tool-card">
+                <h2>Luhn Checker</h2>
+                <p>Validate credit card numbers using the Luhn algorithm.</p>
+                <a href="{{ '/luhn/' | relative_url }}" class="tool-link">Open Tool</a>
+            </div>
+            
+            <div class="tool-card">
+                <h2>Password Generator</h2>
+                <p>Generate secure passwords with customizable options.</p>
+                <a href="{{ '/passwordGenerator/' | relative_url }}" class="tool-link">Open Tool</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+title: Web Tools
+description: A collection of utility web tools
+baseurl: "/webtools" # the subpath of your site, e.g. /blog
+url: "https://jbellue.github.io" # replace with your GitHub username
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+
+# Enable GitHub Pages plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - Dockerfile
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .git
+  - README.md
+  - docker-compose.yml
+
+# Collections
+collections:
+  tools:
+    output: true
